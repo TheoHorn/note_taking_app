@@ -1,4 +1,4 @@
-﻿@using Note_taking_app.Models
+﻿@using note_taking_app.Models
 @model NoteView
 
 @{
@@ -8,6 +8,13 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>Note: @Model.Title</p>
+    @if (Model != null)
+    {
+        <p>Note: @Model.Title</p>
+    }
+    else
+    {
+        <p>Welcome, you don't have any notes yet</p>
+    }
 
 </div>

@@ -1,42 +1,70 @@
-namespace Note_taking_app.Models;
+using System.ComponentModel.DataAnnotations;
 
-public class Note
-{
+namespace note_taking_app.Models;
+
+public class Note{
+
     public static int IdCounter = 1;
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Content { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
 
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    public string Title { get; set; }
+
+    [Required]
+    public DateTime Created_at { get; set; }
+
+    [Required]
+    public DateTime Updated_at { get; set; }
+
+    public List<File> Files { get; set; }
+
+    public List<Task> Tasks { get; set; }
     public Note()
     {
         Id = IdCounter++;
-        CreatedAt = DateTime.Now;
-        UpdatedAt = DateTime.Now;
+        Created_at = DateTime.Now;
+        Updated_at = DateTime.Now;
         Title = "no-title";
-        Content = "ctn";
+        Files = new List<File>();
+        Tasks = new List<Task>();
+    
     }
 
-    public Note(string title, string content)
+
+    public void Update(string title)
     {
-        Id = IdCounter++;
         Title = title;
-        Content = content;
-        CreatedAt = DateTime.Now;
-        UpdatedAt = DateTime.Now;
+        Updated_at = DateTime.Now;
     }
 
-    public void Update(string title, string content)
+    public void AddFile(File file)
     {
-        Title = title;
-        Content = content;
-        UpdatedAt = DateTime.Now;
+        Updated_at = DateTime.Now;
+        Files.Add(file);
+    }
+
+    public void AddTask(Task task)
+    {
+        Updated_at = DateTime.Now;
+        Tasks.Add(task);
+    }
+
+    public void RemoveFile(int id)
+    {
+        Updated_at = DateTime.Now;
+        Files.RemoveAll(f => f.Id == id);
+    }
+
+    public void RemoveTask(int id)
+    {
+        Updated_at = DateTime.Now;
+        Tasks.RemoveAll(t => t.Id == id);
     }
 
     public override string ToString()
     {
-        return $"Id: {Id}, Title: {Title}, Content: {Content}, CreatedAt: {CreatedAt}, UpdatedAt: {UpdatedAt}";
+        return $"Id: {Id}, Title: {Title}, Created_at: {Created_at}, Updated_at: {Updated_at}";
     }
-
 }
