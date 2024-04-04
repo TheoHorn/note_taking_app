@@ -7,6 +7,7 @@ namespace note_taking_app.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+            
         }
 
         public DbSet<Note> Note { get; set; }

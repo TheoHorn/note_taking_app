@@ -1,44 +1,11 @@
--- SQLite
+INSERT INTO NOTE (title, created_at, updated_at) VALUES ('Note 1', '2021-01-01 00:00:00', '2021-01-01 00:00:00');
+INSERT INTO NOTE (title, created_at, updated_at) VALUES ('Note 2', '2021-01-02 00:00:00', '2021-01-02 00:00:00');
+INSERT INTO NOTE (title, created_at, updated_at) VALUES ('Note 3', '2021-01-03 00:00:00', '2021-01-03 00:00:00');
 
-DROP TABLE IF EXISTS NOTE;
-DROP TABLE IF EXISTS FILE;
-DROP TABLE IF EXISTS TASK;
-DROP TABLE IF EXISTS CONNECT_NOTE_FILE;
-DROP TABLE IF EXISTS CONNECT_NOTE_TASK;
+INSERT INTO FILE (title, content, created_at, updated_at, idNote) VALUES ('File 1', 'Content 1', '2021-01-01 00:00:00', '2021-01-01 00:00:00', 1);
+INSERT INTO FILE (title, content, created_at, updated_at, idNote) VALUES ('File 2', 'Content 2', '2021-01-02 00:00:00', '2021-01-02 00:00:00', 2);
+INSERT INTO FILE (title, content, created_at, updated_at, idNote) VALUES ('File 3', 'Content 3', '2021-01-03 00:00:00', '2021-01-03 00:00:00', 2);
 
-CREATE TABLE NOTE (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT,
-    content TEXT,
-    created_at TEXT,
-    updated_at TEXT
-);
-
-CREATE TABLE FILE (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT,
-    content TEXT,
-    created_at TEXT,
-    updated_at TEXT
-);
-
-CREATE TABLE TASK (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT,
-    content TEXT,
-    created_at TEXT,
-    updated_at TEXT,
-    isCompleted INTEGER
-);
-
-CREATE TABLE CONNECT_NOTE_FILE (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    note_id INTEGER,
-    file_id INTEGER
-);
-
-CREATE TABLE CONNECT_NOTE_TASK (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    note_id INTEGER,
-    task_id INTEGER
-);
+INSERT INTO TASK (title, created_at, updated_at, isCompleted, idNote) VALUES ('Task 1', '2021-01-01 00:00:00', '2021-01-01 00:00:00', 0, 1);
+INSERT INTO TASK (title, created_at, updated_at, isCompleted, idNote) VALUES ('Task 2', '2021-01-02 00:00:00', '2021-01-02 00:00:00', 1, 3);
+INSERT INTO TASK (title, created_at, updated_at, isCompleted, idNote) VALUES ('Task 3', '2021-01-03 00:00:00', '2021-01-03 00:00:00', 0, 3);

@@ -1,16 +1,78 @@
 ﻿@using note_taking_app.Models
-@model NoteView
+@model GlobalView
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     @if (Model != null)
     {
-        <p>Note: @Model.Title</p>
+        <div class="global-container">
+            <div class="global-header">
+                <h1>Welcome to your notes</h1>
+            </div>
+            <div class="global-body">
+                <div class="global-notes">
+                    <div class="notes-header">
+                        <h2>Your notes</h2>
+                    </div>
+                    <div class="notes-body">
+                        @if (Model.Notes.Count > 0)
+                        {
+                            @foreach (var note in Model.Notes)
+                            {
+                                <div class="note">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@note.Title</h5>
+                                        <div class="card-files">
+                                            @if (note.Files.Count > 0)
+                                            {
+                                                <div class="files-header">
+                                                    <h6>Files</h6>
+                                                </div>
+                                                <div class="files-body">
+                                                    @foreach (var file in note.Files)
+                                                    {
+                                                        <div class="file">
+                                                            <p>@file.Title</p>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }else
+                                            {
+                                                <p>No files</p>
+                                            }
+                                        </div>
+                                        <div class="card-tasks">
+                                            @if (note.Tasks.Count > 0)
+                                            {
+                                                <div class="tasks-header">
+                                                    <h6>Tasks</h6>
+                                                </div>
+                                                <div class="tasks-body">
+                                                    @foreach (var task in note.Tasks)
+                                                    {
+                                                        <div class="task">
+                                                            <p>@task.Title</p>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }else
+                                            {
+                                                <p>No tasks</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }else{
+                            <p>No notes</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     }
     else
     {

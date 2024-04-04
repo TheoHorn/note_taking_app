@@ -19,13 +19,15 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var notes = _context.Note.ToList();
-        if (notes.Count == 0)
+        var tasks = _context.Task.ToList();
+        var files = _context.File.ToList();
+        foreach (var note in notes)
         {
-            return View();
+            note.Tasks = tasks.Where(t => t.IdNote == note.Id).ToList();
+            note.Files = files.Where(f => f.IdNote == note.Id).ToList();
         }
-        var one_note = notes[0];
-        var noteView = new NoteView(one_note);
-        return View(noteView);
+        var globalView = new GlobalView(notes);
+        return View(globalView);
     }
 
     public IActionResult Privacy()

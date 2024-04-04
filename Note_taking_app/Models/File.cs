@@ -12,14 +12,20 @@ public class File
     [Required]
     public string Title { get; set; }
     public string Content { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
+    [Required]
+    public DateTime Created_at { get; set; }
+
+    [Required]
+    public DateTime Updated_at { get; set; }
+
+    [Required]
+    public int IdNote { get; set; }
 
     public File()
     {
         Id = IdCounter++;
-        CreatedAt = DateTime.Now;
-        UpdatedAt = DateTime.Now;
+        Created_at = DateTime.Now;
+        Updated_at = DateTime.Now;
         Title = "no-title";
         Content = "ctn";
     }
@@ -29,20 +35,20 @@ public class File
         Id = IdCounter++;
         Title = title;
         Content = content;
-        CreatedAt = DateTime.Now;
-        UpdatedAt = DateTime.Now;
+        Created_at = DateTime.Now;
+        Updated_at = DateTime.Now;
     }
 
     public void Update(string title, string content)
     {
         Title = title;
         Content = content;
-        UpdatedAt = DateTime.Now;
+        Updated_at = DateTime.Now;
     }
 
     public override string ToString()
     {
-        return $"Id: {Id}, Title: {Title}, Content: {Content}, CreatedAt: {CreatedAt}, UpdatedAt: {UpdatedAt}";
+        return $"Id: {Id}, Title: {Title}, Content: {Content}, Created_at: {Created_at}, Updated_at: {Updated_at}";
     }
 
 }

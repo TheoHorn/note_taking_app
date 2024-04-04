@@ -20,3 +20,88 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/* My custom styles */
+/* Container */
+.global-container {
+  max-width: 8000px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.global-header h1 {
+  color: #333;
+}
+
+/* Notes */
+.global-notes {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.notes-body{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+.note {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-title {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Files */
+.files-header h6 {
+  color: #666;
+}
+
+.file {
+  padding: 5px 0;
+}
+
+/* Tasks */
+.tasks-header h6 {
+  color: #666;
+}
+
+.task {
+  padding: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .note {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .note {
+      width: 100%;
+  }
+}

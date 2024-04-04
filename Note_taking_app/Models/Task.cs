@@ -11,19 +11,24 @@ public class Task{
     [Required]
     public string Title { get; set; }
 
-    public DateTime CreatedAt { get; set; }
+    [Required]
+    public DateTime Created_at { get; set; }
 
-    public DateTime UpdatedAt { get; set; }
+    [Required]
+    public DateTime Updated_at { get; set; }
 
-    public bool IsComplete { get; set; }
+    public bool IsCompleted { get; set; }
+
+    [Required]
+    public int IdNote { get; set; }
 
     public Task()
     {
         Id = IdCounter++;
-        CreatedAt = DateTime.Now;
-        UpdatedAt = DateTime.Now;
+        Created_at = DateTime.Now;
+        Updated_at = DateTime.Now;
         Title = "no-title";
-        IsComplete = false;
+        IsCompleted = false;
     }
 
     
