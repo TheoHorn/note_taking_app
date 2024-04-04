@@ -19,6 +19,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore Note_taking_app/note_taking_app.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build Note_taking_app/note_taking_app.csproj --no-restore 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test Note_taking_app/note_taking_app.csproj --no-build --verbosity normal
