@@ -23,7 +23,11 @@ public class HomeController : Controller
         var files = _context.File.ToList();
         foreach (var note in notes)
         {
-            note.Tasks = tasks.Where(t => t.IdNote == note.Id).ToList();
+            note.setTasks(tasks.Where(t => t.IdNote == note.Id).ToList());
+            foreach (var task in note.Tasks)
+            {
+                task.NoteTitle = note.Title;
+            }
             note.Files = files.Where(f => f.IdNote == note.Id).ToList();
         }
         var globalView = new GlobalView(notes);

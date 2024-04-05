@@ -20,7 +20,7 @@ public class Note{
 
     public List<File> Files { get; set; }
 
-    public List<Task> Tasks { get; set; }
+    public List<Task> Tasks { get; }
     public Note()
     {
         Id = IdCounter++;
@@ -49,6 +49,7 @@ public class Note{
     {
         Updated_at = DateTime.Now;
         Tasks.Add(task);
+        Tasks.Sort((x, y) => DateTime.Compare(x.Due, y.Due));
     }
 
     public void RemoveFile(int id)
@@ -61,6 +62,14 @@ public class Note{
     {
         Updated_at = DateTime.Now;
         Tasks.RemoveAll(t => t.Id == id);
+    }
+
+    public void setTasks(List<Task> tasks)
+    {
+        Updated_at = DateTime.Now;
+        Tasks.Clear();
+        Tasks.AddRange(tasks);
+        Tasks.Sort((x, y) => DateTime.Compare(x.Due, y.Due));
     }
 
     public override string ToString()

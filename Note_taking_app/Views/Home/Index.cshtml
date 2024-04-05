@@ -39,9 +39,6 @@
                                                         </div>
                                                     }
                                                 </div>
-                                            }else
-                                            {
-                                                <p>No files</p>
                                             }
                                         </div>
                                         <div class="card-tasks">
@@ -55,21 +52,36 @@
                                                     @foreach (var task in note.Tasks)
                                                     {
                                                         <div class="task">
-                                                            <input type="checkbox" checked="@task.IsCompleted" />
-                                                            <p>@task.Title</p>
+                                                            <input type="checkbox"  class="linked-checkbox" checked="@task.IsCompleted" data-link="@task.Id" />
+                                                            <p>@task.Title - @task.getDueString()</p>
                                                         </div>
                                                     }
                                                 </div>
-                                            }else
-                                            {
-                                                <p>No tasks</p>
                                             }
+                                            
                                         </div>
                                     </div>
                                 </div>
                             }
                         }else{
                             <p>No notes</p>
+                        }
+                    </div>
+                </div>
+                <div class="global-tasks">
+                    <div class="tasks-header">
+                        <h2>Your tasks</h2>
+                    </div>
+                    <div class="global-tasks-body">
+                        @if (Model.Tasks.Count > 0)
+                        {
+                            @foreach (var task in Model.Tasks)
+                            {
+                                <div class="task">
+                                    <input type="checkbox" class="linked-checkbox" checked="@task.IsCompleted" data-link="@task.Id"/>
+                                    <p><em class="task-note-title">(@task.NoteTitle)</em> - @task.Title - @task.getDueString()</p>
+                                </div>
+                            }
                         }
                     </div>
                 </div>

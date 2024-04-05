@@ -48,6 +48,29 @@ body {
   flex-direction: column;
 }
 
+.global-body{
+  display: grid;
+  grid-template-columns: 70% 25% ;
+  grid-template-rows: 100% ;
+  grid-column-gap: 5%;
+}
+
+.global-tasks {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: normal;
+  flex-direction: column;
+}
+
+.global-tasks-body{
+  background-color: var(--accent-color);
+  border : 4px solid var(--accent-color2);
+  border-radius: 10px;
+  padding: 10px;
+  
+}
+ 
 /* Header */
 .global-header h1 {
   color: #333;
@@ -145,10 +168,14 @@ body {
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-.task input[type="checkbox"]:checked + p {
+.task input[type="checkbox"]:checked + p{
   font-style: italic;
   text-decoration: line-through;
   color: var(--text-secoundary-color); 
+}
+
+.task-note-title {
+  font-style: italic;
 }
 
 /* Responsive */
