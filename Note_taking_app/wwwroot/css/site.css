@@ -6,12 +6,12 @@
   --text-third-color: #4d2769;
   --accent-color: #b375a7;
   --accent-color2: #f8d6e1;
+  --accent-color3: #f042cd;
   --secoundary-color: #f8edeb;
 }
 
 html {
   font-size: 14px;
-  background-color: var(--bg-color);
   color: var(--text-color);
 }
 
@@ -90,7 +90,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  
+ 
 }
 
 .note {
@@ -132,6 +132,8 @@ body {
 .tasks-header h6 {
   color: var(--text-secoundary-color);
   font-size: 1.2rem;
+  border-top: 4px solid var(--accent-color2);
+  padding-top: 10px;
 }
 
 .task {
@@ -176,6 +178,24 @@ body {
 
 .task-note-title {
   font-style: italic;
+}
+
+.add-button {
+  background-image: url(../icons/plus.png);
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--accent-color);
+  border: 2px solid var(--accent-color2);
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 10%;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.add-button:hover {
+  background-color: var(--accent-color3);
 }
 
 /* Responsive */
