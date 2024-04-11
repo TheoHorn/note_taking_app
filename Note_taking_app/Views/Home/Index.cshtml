@@ -38,17 +38,21 @@
                                                             <p>@file.Title</p>
                                                         </div>
                                                     }
-                                                    <div class="add-task">
-                                                        <input type="button" class="add-button" />  
-                                                    </div>
+                                                    <form action="" method="post" class="add-task-form">
+                                                        <div class="add-file">
+                                                            <button type="submit" class="add-button" />  
+                                                        </div>
+                                                    </form> 
                                                 </div>
                                             }else{
                                                 <div class="files-header">
                                                     <h6>No files</h6>
                                                 </div>
-                                                <div class="add-task">
-                                                        <input type="button" class="add-button" />  
-                                                </div>
+                                                <form action="" method="post" class="add-task-form">
+                                                    <div class="add-file">
+                                                        <button type="submit" class="add-button" />  
+                                                    </div>
+                                                </form> 
                                             }
                                         </div>
                                         <div class="card-tasks">
@@ -66,26 +70,38 @@
                                                             <p>@task.Title - @task.getDueString()</p>
                                                         </div>
                                                     }
-                                                    <div class="add-task">
-                                                        <input type="button" class="add-button" />  
-                                                    </div>
+                                                    <form action="/Task/Create/@note.Id" method="post" class="add-task-form">
+                                                        <div class="add-task">
+                                                            <button type="submit" class="add-button" />  
+                                                        </div>
+                                                    </form> 
                                                 </div>
                                             }else{
                                                 <div class="tasks-header">
                                                     <h6>No tasks</h6>
                                                 </div>
-                                                <div class="add-task">
-                                                        <input type="button" class="add-button" />  
-                                                </div>
+                                                <form action="/Task/Create/@note.Id" method="post" class="add-task-form">
+                                                    <div class="add-task">
+                                                        <button type="submit" class="add-button" />  
+                                                    </div>
+                                                </form> 
                                             }
                                             
                                         </div>
                                     </div>
                                 </div>
                             }
-                        }else{
-                            <p>No notes</p>
                         }
+                        <div class="note">
+                            <div class="card-body">
+                                <h5 class="card-title">Add a New Task</h5>
+                                <form action="/Note/Create" method="post" class="add-note-form">
+                                    <div class="add-note">
+                                        <button type="submit" class="add-button" />  
+                                    </div>
+                                </form>  
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="global-tasks">

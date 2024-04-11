@@ -5,8 +5,6 @@ public class GlobalView
 
     public List<Task> Tasks { get; set; }
 
-    //public List<Note> ArchivedNotes { get; set; }
-
     public GlobalView(List<Note> notes_find)
     {
         Notes = [.. notes_find];
